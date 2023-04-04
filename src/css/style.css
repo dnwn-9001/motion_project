@@ -1,8 +1,16 @@
 :root {
   /* 공통 색상 */
   --color-pink-light: #fff0f0;
+  --color-pink: #ffcccc;
   --color-blue-green: #28b4b4;
+  --color-navy-light: #006699;
+
   /* Font Size */
+  --font-large: 3rem;
+  --font-medium: 2.5rem;
+  --font-regular: 2rem;
+  --font-small: 1rem;
+  --font-micro: 0.5rem;
 
   /* Font Weight */
   --weight-bold: 700;
@@ -14,6 +22,7 @@ body {
   background-image: url(../../public/img/cool-background.png);
   margin: auto;
   height: 78em;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .box {
@@ -23,6 +32,7 @@ body {
   height: 100%;
 }
 
+/* header */
 header {
   display: flex;
   flex-direction: column;
@@ -31,7 +41,43 @@ header {
 }
 
 h1 {
-  font-family: "Ubuntu", sans-serif;
   color: var(--color-pink-light);
   text-align: center;
+  font-size: var(--font-large);
+  margin: 1.3rem;
+}
+
+.header__div {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.heaer__btn {
+  margin: 0 0.5em;
+  padding: 1.3em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--color-navy-light);
+  color: var(--color-pink-light);
+  font-weight: var(--weight-bold);
+}
+
+/* section */
+section {
+  height: 75%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* footer */
+footer {
+  background-color: rgba(000, 153, 225, 0.3);
+  height: 10%;
+  text-align: center;
+}
+
+.footer__p {
+  margin: auto;
+  padding-top: 3em;
 }
