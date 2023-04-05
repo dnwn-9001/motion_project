@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
-    <script src="./build/main.js"></script>
+    <script src="./build/main.js" defer></script>
     <title>Motion</title>
   </head>
   <body>
@@ -19,13 +19,29 @@
       <header>
         <h1>MOTION</h1>
         <div class="header__div">
-          <button class="heaer__btn">IMAGE</button>
-          <button class="heaer__btn">VIDEO</button>
-          <button class="heaer__btn">NOTE</button>
-          <button class="heaer__btn">TASK</button>
+          <button id="img_btn" class="header__btn">IMAGE</button>
+          <button id="video_btn" class="header__btn">VIDEO</button>
+          <button id="note_btn" class="header__btn">NOTE</button>
+          <button id="task_btn" class="header__btn">TASK</button>
         </div>
       </header>
-      <section></section>
+      <section>
+        <!-- popup -->
+        <div class="popup__background">
+          <div class="popup__box">
+            <button class="popup__close__btn">x</button>
+            <div class="popup__input">
+              <label for="title_input">Title</label>
+              <input type="text" class="popup__input__title" id="title_input" />
+            </div>
+            <div class="popup__input">
+              <label for="url_input">URL</label>
+              <input type="text" class="popup__url__title" id="url_input" />
+            </div>
+            <button class="popup__add__btn">ADD</button>
+          </div>
+        </div>
+      </section>
       <footer>
         <p class="footer__p">ⓒCopyright by Youngin All rights reversed.</p>
       </footer>
