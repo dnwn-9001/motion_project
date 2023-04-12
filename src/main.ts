@@ -9,7 +9,7 @@ class Popup {
 
   clickTurnOnPopupBtn() {
     this.btnElement?.addEventListener("click", () => {
-      this.turnOnPopup();
+      this.changeContents();
     });
   }
 
@@ -20,11 +20,6 @@ class Popup {
   }
 
   turnOnPopup() {
-    // if (this.btnElement && (this.btnElement.id === "note_btn" || "task_btn")) {
-    //   console.log(this.btnElement.id);
-
-    //   this.changeNoteAndTaskContents();
-    // }
     const popupBackground = document.querySelector(".popup__background");
     popupBackground?.classList.remove("display_none");
   }
@@ -34,16 +29,36 @@ class Popup {
     popupBackground?.classList.add("display_none");
   }
 
-  changeNoteAndTaskContents() {
+  changeContents() {
     const inputLabel = document.querySelector("#input_label");
     const secondInput = document.querySelector(".popup__url__title");
-    if (inputLabel && secondInput) {
-      inputLabel.innerHTML = "";
-      secondInput.remove();
-      inputLabel.innerHTML += "Body <br/>";
-      secondInput.innerHTML += "<textarea></textarea>";
-      secondInput.classList.add("popup__url__title");
+    const parentPopupInput = document.querySelectorAll(".popup__input")[1];
+    const textArea = document.createElement("textarea");
+    const inputElement = document.createElement("input");
+
+    if (this.btnElement?.id === "note_btn" || "task_btn") {
+      if (inputLabel && secondInput) {
+        console.log("id", this.btnElement?.id);
+        console.log("note&task");
+
+        inputLabel.innerHTML = "";
+        inputLabel.innerHTML += "Body <br/>";
+        parentPopupInput.replaceChild(textArea, secondInput);
+        secondInput.setAttribute("class", "popup__url__title");
+      }
+    } else if (this.btnElement?.id === "img_btn" || "video_btn") {
+      if (inputLabel && secondInput) {
+        console.log("id", this.btnElement?.id);
+        console.log("image&video");
+
+        inputLabel.innerHTML = "";
+        inputLabel.innerHTML += "URL <br/>";
+        parentPopupInput.replaceChild(inputElement, secondInput);
+        secondInput.setAttribute("class", "popup__url__title");
+      }
     }
+
+    this.turnOnPopup();
   }
 }
 
