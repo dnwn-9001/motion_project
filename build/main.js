@@ -6,8 +6,8 @@ var Popup = /** @class */ (function () {
     Popup.prototype.clickTurnOnPopupBtn = function () {
         var _this = this;
         var _a;
-        (_a = this.btnElement) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
-            _this.changeContents();
+        (_a = this.btnElement) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function (e) {
+            _this.changeContents(e.target);
         });
     };
     Popup.prototype.clickTurnOffPopupBtn = function () {
@@ -25,31 +25,28 @@ var Popup = /** @class */ (function () {
         var popupBackground = document.querySelector(".popup__background");
         popupBackground === null || popupBackground === void 0 ? void 0 : popupBackground.classList.add("display_none");
     };
-    Popup.prototype.changeContents = function () {
-        var _a, _b, _c, _d;
+    Popup.prototype.changeContents = function (target) {
+        console.log("changeContents 들어옴");
+        console.log("1", target.id);
         var inputLabel = document.querySelector("#input_label");
         var secondInput = document.querySelector(".popup__url__title");
         var parentPopupInput = document.querySelectorAll(".popup__input")[1];
         var textArea = document.createElement("textarea");
         var inputElement = document.createElement("input");
-        if (((_a = this.btnElement) === null || _a === void 0 ? void 0 : _a.id) === "note_btn" || "task_btn") {
+        if (target.id === "note_btn" || target.id === "task_btn") {
             if (inputLabel && secondInput) {
-                console.log("id", (_b = this.btnElement) === null || _b === void 0 ? void 0 : _b.id);
-                console.log("note&task");
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "Body <br/>";
                 parentPopupInput.replaceChild(textArea, secondInput);
-                secondInput.setAttribute("class", "popup__url__title");
+                inputElement.setAttribute("class", "popup__url__title");
             }
         }
-        else if (((_c = this.btnElement) === null || _c === void 0 ? void 0 : _c.id) === "img_btn" || "video_btn") {
+        else if (target.id === "img_btn" || target.id === "video_btn") {
             if (inputLabel && secondInput) {
-                console.log("id", (_d = this.btnElement) === null || _d === void 0 ? void 0 : _d.id);
-                console.log("image&video");
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "URL <br/>";
                 parentPopupInput.replaceChild(inputElement, secondInput);
-                secondInput.setAttribute("class", "popup__url__title");
+                inputElement.setAttribute("class", "popup__url__title");
             }
         }
         this.turnOnPopup();
