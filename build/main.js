@@ -26,22 +26,22 @@ var Popup = /** @class */ (function () {
         popupBackground === null || popupBackground === void 0 ? void 0 : popupBackground.classList.add("display_none");
     };
     Popup.prototype.changeContents = function (target) {
-        console.log("changeContents 들어옴");
-        console.log("1", target.id);
         var inputLabel = document.querySelector("#input_label");
         var secondInput = document.querySelector(".popup__url__title");
         var parentPopupInput = document.querySelectorAll(".popup__input")[1];
         var textArea = document.createElement("textarea");
         var inputElement = document.createElement("input");
         if (target.id === "note_btn" || target.id === "task_btn") {
+            console.log(secondInput);
             if (inputLabel && secondInput) {
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "Body <br/>";
                 parentPopupInput.replaceChild(textArea, secondInput);
-                inputElement.setAttribute("class", "popup__url__title");
+                textArea.setAttribute("class", "popup__url__title");
             }
         }
         else if (target.id === "img_btn" || target.id === "video_btn") {
+            console.log(secondInput);
             if (inputLabel && secondInput) {
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "URL <br/>";

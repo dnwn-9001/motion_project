@@ -30,9 +30,6 @@ class Popup {
   }
 
   changeContents(target: HTMLElement) {
-    console.log("changeContents 들어옴");
-    console.log("1", target.id);
-
     const inputLabel = document.querySelector("#input_label");
     const secondInput = document.querySelector(".popup__url__title");
     const parentPopupInput = document.querySelectorAll(".popup__input")[1];
@@ -40,13 +37,17 @@ class Popup {
     const inputElement = document.createElement("input");
 
     if (target.id === "note_btn" || target.id === "task_btn") {
+      console.log(secondInput);
+
       if (inputLabel && secondInput) {
         inputLabel.innerHTML = "";
         inputLabel.innerHTML += "Body <br/>";
         parentPopupInput.replaceChild(textArea, secondInput);
-        inputElement.setAttribute("class", "popup__url__title");
+        textArea.setAttribute("class", "popup__url__title");
       }
     } else if (target.id === "img_btn" || target.id === "video_btn") {
+      console.log(secondInput);
+
       if (inputLabel && secondInput) {
         inputLabel.innerHTML = "";
         inputLabel.innerHTML += "URL <br/>";
