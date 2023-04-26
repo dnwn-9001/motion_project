@@ -19,6 +19,14 @@ class Popup {
     });
   }
 
+  clickAddBtn() {
+    const addBtn = document.querySelector(".popup__add__btn");
+    addBtn?.addEventListener("click", () => {
+      console.log(this.btnElement);
+      this.turnOffPopup();
+    });
+  }
+
   turnOnPopup() {
     const popupBackground = document.querySelector(".popup__background");
     popupBackground?.classList.remove("display_none");
@@ -37,8 +45,6 @@ class Popup {
     const inputElement = document.createElement("input");
 
     if (target.id === "note_btn" || target.id === "task_btn") {
-      console.log(secondInput);
-
       if (inputLabel && secondInput) {
         inputLabel.innerHTML = "";
         inputLabel.innerHTML += "Body <br/>";
@@ -46,8 +52,6 @@ class Popup {
         textArea.setAttribute("class", "popup__url__title");
       }
     } else if (target.id === "img_btn" || target.id === "video_btn") {
-      console.log(secondInput);
-
       if (inputLabel && secondInput) {
         inputLabel.innerHTML = "";
         inputLabel.innerHTML += "URL <br/>";
@@ -60,6 +64,7 @@ class Popup {
   }
 }
 
+// 버튼 클릭으로 팝업 띄우기
 const imgPopup = new Popup("#img_btn");
 const videoPopup = new Popup("#video_btn");
 const notePopup = new Popup("#note_btn");
@@ -71,3 +76,5 @@ videoPopup.clickTurnOnPopupBtn();
 notePopup.clickTurnOnPopupBtn();
 taskPopup.clickTurnOnPopupBtn();
 popupCloseBtn.clickTurnOffPopupBtn();
+
+imgPopup.clickAddBtn();

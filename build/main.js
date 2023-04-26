@@ -17,6 +17,14 @@ var Popup = /** @class */ (function () {
             _this.turnOffPopup();
         });
     };
+    Popup.prototype.clickAddBtn = function () {
+        var _this = this;
+        var addBtn = document.querySelector(".popup__add__btn");
+        addBtn === null || addBtn === void 0 ? void 0 : addBtn.addEventListener("click", function () {
+            console.log(_this.btnElement);
+            _this.turnOffPopup();
+        });
+    };
     Popup.prototype.turnOnPopup = function () {
         var popupBackground = document.querySelector(".popup__background");
         popupBackground === null || popupBackground === void 0 ? void 0 : popupBackground.classList.remove("display_none");
@@ -32,7 +40,6 @@ var Popup = /** @class */ (function () {
         var textArea = document.createElement("textarea");
         var inputElement = document.createElement("input");
         if (target.id === "note_btn" || target.id === "task_btn") {
-            console.log(secondInput);
             if (inputLabel && secondInput) {
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "Body <br/>";
@@ -41,7 +48,6 @@ var Popup = /** @class */ (function () {
             }
         }
         else if (target.id === "img_btn" || target.id === "video_btn") {
-            console.log(secondInput);
             if (inputLabel && secondInput) {
                 inputLabel.innerHTML = "";
                 inputLabel.innerHTML += "URL <br/>";
@@ -53,6 +59,7 @@ var Popup = /** @class */ (function () {
     };
     return Popup;
 }());
+// 버튼 클릭으로 팝업 띄우기
 var imgPopup = new Popup("#img_btn");
 var videoPopup = new Popup("#video_btn");
 var notePopup = new Popup("#note_btn");
@@ -63,4 +70,5 @@ videoPopup.clickTurnOnPopupBtn();
 notePopup.clickTurnOnPopupBtn();
 taskPopup.clickTurnOnPopupBtn();
 popupCloseBtn.clickTurnOffPopupBtn();
+imgPopup.clickAddBtn();
 //# sourceMappingURL=main.js.map
